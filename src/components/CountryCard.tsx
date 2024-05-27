@@ -1,4 +1,5 @@
 import { CountryProps } from "@/types/country";
+import { Link } from "react-router-dom";
 
 export default function CountryCard({
   capital,
@@ -17,7 +18,10 @@ export default function CountryCard({
   });
 
   return (
-    <div className="max-w-[350px] sm:max-w-full w-full shadow-md rounded overflow-hidden max-h-[380px] flex flex-col">
+    <Link
+      to={`/country/${name.common}`}
+      className="max-w-[350px] sm:max-w-full w-full shadow-md rounded overflow-hidden max-h-[380px] flex flex-col"
+    >
       <div className="h-2/4">
         <img
           src={flags.svg}
@@ -46,6 +50,6 @@ export default function CountryCard({
           )}
         </div>
       </div>
-    </div>
+    </Link>
   );
 }

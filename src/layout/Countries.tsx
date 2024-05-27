@@ -7,7 +7,7 @@ export default function Countries() {
   const { countries } = state;
   return (
     <section className="">
-      <Container className="grid grid-cols-auto_fit xl:grid-cols-4 justify-items-center px-6 mt-8 gap-10 pb-20">
+      <Container className="grid grid-cols-auto_fit xl:grid-cols-4 justify-items-center px-5 gap-10 pb-20">
         {countries &&
           countries.map(
             ({ capital, flags, name, population, region, ...props }, index) => (
