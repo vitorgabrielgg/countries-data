@@ -8,8 +8,7 @@ import { Link, useParams } from "react-router-dom";
 
 export default function Country() {
   const { name } = useParams();
-  const { state, getCountry } = useCountries();
-  const { country, bordersCountry } = state;
+  const { country, bordersCountry, getCountry } = useCountries();
 
   const numberFormatter = new Intl.NumberFormat("en", { notation: "standard" });
 

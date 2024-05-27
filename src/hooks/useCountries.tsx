@@ -6,6 +6,8 @@ import { useContext } from "react";
 export const useCountries = () => {
   const { state, dispatch } = useContext(CountriesContext);
 
+  const { continent, bordersCountry, country, nameInput, countries } = state;
+
   const borderCountry = () => {
     dispatch({ type: CountriesActionTypes.GET_BORDERS_COUNTRIES, payload: {} });
   };
@@ -22,9 +24,21 @@ export const useCountries = () => {
     });
   };
 
+  const getCountriesByName = (name: string) => {
+    dispatch({
+      type: CountriesActionTypes.GET_COUNTRIES_BY_NAME,
+      payload: { name },
+    });
+  };
+
   return {
-    state,
+    countries,
+    country,
+    continent,
+    bordersCountry,
+    nameInput,
     getCountry,
     getCountriesByContinent,
+    getCountriesByName,
   };
 };

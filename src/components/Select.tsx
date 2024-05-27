@@ -38,8 +38,7 @@ const arrContinent = [
 ];
 
 export default function Select() {
-  const { getCountriesByContinent, state } = useCountries();
-  const { continent } = state;
+  const { getCountriesByContinent, continent } = useCountries();
 
   return (
     <div className="relative w-[220px] shadow-around rounded">

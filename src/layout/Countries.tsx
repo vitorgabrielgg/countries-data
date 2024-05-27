@@ -3,8 +3,7 @@ import CountryCard from "@/components/CountryCard";
 import { useCountries } from "@/hooks/useCountries";
 
 export default function Countries() {
-  const { state } = useCountries();
-  const { countries } = state;
+  const { countries } = useCountries();
   return (
     <section className="">
       <Container className="grid grid-cols-auto_fit xl:grid-cols-4 justify-items-center px-5 gap-10 pb-20">

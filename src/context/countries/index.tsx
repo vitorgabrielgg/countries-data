@@ -63,6 +63,30 @@ const countriesReducer = (state: StateProps, action: ActionProps) => {
         ),
       };
     case CountriesActionTypes.GET_COUNTRIES_BY_CONTINENT:
+      if (state.nameInput) {
+        if (payload.continent === "All") {
+          return {
+            ...state,
+            countries: initialState.countries.filter((country) =>
+              country.name.common
+                .toLowerCase()
+                .includes(state.nameInput.toLowerCase())
+            ),
+            continent: "",
+          };
+        }
+        return {
+          ...state,
+          countries: initialState.countries
+            .filter((country) =>
+              country.name.common
+                .toLowerCase()
+                .includes(state.nameInput.toLowerCase())
+            )
+            .filter((country) => country.region === payload.continent),
+          continent: payload.continent,
+        };
+      }
       return {
         ...state,
         countries:
@@ -73,6 +97,40 @@ const countriesReducer = (state: StateProps, action: ActionProps) => {
               ),
         continent: payload.continent,
       };
+
+    case CountriesActionTypes.GET_COUNTRIES_BY_NAME:
+      if (state.continent) {
+        if (state.continent === "All") {
+          return {
+            ...state,
+            countries: initialState.countries.filter((country) =>
+              country.name.common
+                .toLowerCase()
+                .includes(payload.name.toLowerCase())
+            ),
+            continent: "",
+          };
+        }
+        return {
+          ...state,
+          countries: initialState.countries
+            .filter((country) => country.region === state.continent)
+            .filter((country) =>
+              country.name.common
+                .toLowerCase()
+                .includes(payload.name.toLowerCase())
+            ),
+          nameInput: payload.name,
+        };
+      }
+      return {
+        ...state,
+        countries: initialState.countries.filter((country) =>
+          country.name.common.toLowerCase().includes(payload.name.toLowerCase())
+        ),
+        nameInput: payload.name,
+      };
+
     default:
       return state;
   }
