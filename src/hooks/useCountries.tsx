@@ -15,8 +15,16 @@ export const useCountries = () => {
     borderCountry();
   };
 
+  const getCountriesByContinent = (continent: string) => {
+    dispatch({
+      type: CountriesActionTypes.GET_COUNTRIES_BY_CONTINENT,
+      payload: { continent },
+    });
+  };
+
   return {
     state,
     getCountry,
+    getCountriesByContinent,
   };
 };

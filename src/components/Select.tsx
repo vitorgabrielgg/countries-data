@@ -1,3 +1,4 @@
+import { useCountries } from "@/hooks/useCountries";
 import {
   Select as SelectContainer,
   SelectContent,
@@ -37,9 +38,15 @@ const arrContinent = [
 ];
 
 export default function Select() {
+  const { getCountriesByContinent, state } = useCountries();
+  const { continent } = state;
+
   return (
     <div className="relative w-[220px] shadow-around rounded">
-      <SelectContainer>
+      <SelectContainer
+        value={continent && continent}
+        onValueChange={(value) => getCountriesByContinent(value)}
+      >
         <SelectTrigger className="w-full outline-none rounded py-7 text-left pl-6 text-very_dark_blue text-sm font-semibold border-none h-14 bg-white">
           <SelectValue placeholder="Filter by Region" />
         </SelectTrigger>

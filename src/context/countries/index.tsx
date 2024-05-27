@@ -6,7 +6,7 @@ import { CountriesActionTypes } from "./action-types";
 type ActionProps = {
   type: string;
   payload: {
-    [key: string]: string | CountryProps;
+    [key: string]: string;
   };
 };
 
@@ -44,7 +44,7 @@ export const CountriesContext = createContext<ContextProps>({
   dispatch: () => [],
 });
 
-const countryReducer = (state: StateProps, action: ActionProps) => {
+const countriesReducer = (state: StateProps, action: ActionProps) => {
   const { type, payload } = action;
   switch (type) {
     case CountriesActionTypes.GET_COUNTRY:
@@ -62,13 +62,24 @@ const countryReducer = (state: StateProps, action: ActionProps) => {
             state.country?.borders && state.country.borders.includes(c.cca3)
         ),
       };
+    case CountriesActionTypes.GET_COUNTRIES_BY_CONTINENT:
+      return {
+        ...state,
+        countries:
+          payload.continent === "All"
+            ? initialState.countries
+            : initialState.countries.filter(
+                (country) => country.region === payload.continent
+              ),
+        continent: payload.continent,
+      };
     default:
       return state;
   }
 };
 
 export const CountriesProvider = ({ children }: { children: ReactNode }) => {
-  const [state, dispatch] = useReducer(countryReducer, initialState);
+  const [state, dispatch] = useReducer(countriesReducer, initialState);
 
   return (
     <CountriesContext.Provider value={{ state, dispatch }}>
