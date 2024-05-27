@@ -1,0 +1,28 @@
+import Container from "@/components/Container";
+import CountryCard from "@/components/CountryCard";
+import { useCountries } from "@/hooks/useCountries";
+
+export default function Countries() {
+  const { state } = useCountries();
+  const { countries } = state;
+  return (
+    <section className="">
+      <Container className="grid grid-cols-auto_fit xl:grid-cols-4 justify-items-center px-6 mt-8 gap-10 pb-20">
+        {countries &&
+          countries.map(
+            ({ capital, flags, name, population, region, ...props }, index) => (
+              <CountryCard
+                key={index}
+                capital={capital}
+                flags={flags}
+                name={name}
+                population={population}
+                region={region}
+                {...props}
+              />
+            )
+          )}
+      </Container>
+    </section>
+  );
+}

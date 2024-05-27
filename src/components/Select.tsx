@@ -43,7 +43,7 @@ export default function Select() {
         <SelectTrigger className="w-full outline-none rounded py-7 text-left pl-6 text-very_dark_blue text-sm font-semibold border-none h-14 bg-white">
           <SelectValue placeholder="Filter by Region" />
         </SelectTrigger>
-        <SelectContent className="border-none shadow-around rounded">
+        <SelectContent className="border-none bg-white shadow-around rounded">
           <SelectGroup>
             {arrContinent.map((continent, index) => (
               <SelectItem
