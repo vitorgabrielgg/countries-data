@@ -10,6 +10,12 @@ export default function Country() {
   const { name } = useParams();
   const { country, bordersCountry, getCountry } = useCountries();
 
+  useEffect(() => {
+    if (name) {
+      getCountry(name);
+    }
+  }, [name]);
+
   const numberFormatter = new Intl.NumberFormat("en", { notation: "standard" });
 
   const listFormatter = new Intl.ListFormat("en", {
@@ -64,12 +70,6 @@ export default function Country() {
         ),
     },
   ];
-
-  useEffect(() => {
-    if (name) {
-      getCountry(name);
-    }
-  }, [name]);
 
   return (
     <>

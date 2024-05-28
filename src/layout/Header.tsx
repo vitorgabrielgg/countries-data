@@ -1,5 +1,5 @@
 import Container from "@/components/Container";
-import { useTheme } from "@/context/theme";
+import { useTheme } from "@/hooks/useTheme";
 import { IoMoonOutline, IoMoonSharp } from "react-icons/io5";
 
 export default function Header() {
