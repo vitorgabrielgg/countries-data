@@ -1,11 +1,14 @@
+import Theme from "./components/Theme";
 import { CountriesProvider } from "./context/countries";
 import Page from "./pages/Page";
 
 function App() {
   return (
-    <CountriesProvider>
-      <Page />
-    </CountriesProvider>
+    <Theme>
+      <CountriesProvider>
+        <Page />
+      </CountriesProvider>
+    </Theme>
   );
 }
 

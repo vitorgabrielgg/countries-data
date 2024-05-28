@@ -80,14 +80,14 @@ export default function Country() {
               <Button
                 variant="default"
                 size="sm"
-                className="px-7 space-x-2 rounded mt-12 bg-white shadow-around"
+                className="px-7 space-x-2 rounded mt-12 bg-white dark:bg-dark_blue outline-none shadow-around dark:text-white transition-colors"
               >
-                <FaArrowLeftLong className="font-extrabold" />
+                <FaArrowLeftLong className="font-extrabold dark:text-white transition-colors" />
                 <span className="font-semibold">Back</span>
               </Button>
             </Link>
 
-            <div className="mt-16 flex flex-col lg:flex-row lg:gap-10 lg:items-start xl:gap-20">
+            <div className="mt-16 flex flex-col lg:flex-row lg:gap-10 lg:items-start xl:gap-20 dark:text-white transition-colors">
               <div className="h-auto sm:w-3/4 lg:w-2/4 shadow">
                 <img
                   src={country.flags.svg}

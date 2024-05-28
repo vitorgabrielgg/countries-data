@@ -46,15 +46,15 @@ export default function Select() {
         value={continent && continent}
         onValueChange={(value) => getCountriesByContinent(value)}
       >
-        <SelectTrigger className="w-full outline-none rounded py-7 text-left pl-6 text-very_dark_blue text-sm font-semibold border-none h-14 bg-white">
+        <SelectTrigger className="w-full outline-none rounded py-7 text-left pl-6 text-very_dark_blue text-sm font-semibold border-none h-14 bg-white dark:bg-dark_blue dark:text-white transition-colors">
           <SelectValue placeholder="Filter by Region" />
         </SelectTrigger>
-        <SelectContent className="border-none bg-white shadow-around rounded">
-          <SelectGroup>
+        <SelectContent className="border-none shadow-around rounded bg-white dark:bg-dark_blue transition-colors">
+          <SelectGroup className="">
             {arrContinent.map((continent, index) => (
               <SelectItem
                 key={index}
-                className="cursor-pointer"
+                className="cursor-pointer dark:text-white transition-colors"
                 value={continent.value}
               >
                 {continent.option}
@@ -63,7 +63,7 @@ export default function Select() {
           </SelectGroup>
         </SelectContent>
       </SelectContainer>
-      <IoIosArrowDown className="absolute top-2/4 -translate-y-2/4 right-3" />
+      <IoIosArrowDown className="absolute top-2/4 -translate-y-2/4 right-3 dark:text-white transition-colors" />
     </div>
   );
 }
