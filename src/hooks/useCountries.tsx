@@ -8,13 +8,12 @@ export const useCountries = () => {
 
   const { continent, bordersCountry, country, nameInput, countries } = state;
 
-  const borderCountry = () => {
+  const getBordersCountry = () => {
     dispatch({ type: CountriesActionTypes.GET_BORDERS_COUNTRIES, payload: {} });
   };
 
   const getCountry = (country: string) => {
     dispatch({ type: CountriesActionTypes.GET_COUNTRY, payload: { country } });
-    borderCountry();
   };
 
   const getCountriesByContinent = (continent: string) => {
@@ -40,5 +39,6 @@ export const useCountries = () => {
     getCountry,
     getCountriesByContinent,
     getCountriesByName,
+    getBordersCountry,
   };
 };

@@ -50,14 +50,14 @@ const countriesReducer = (state: StateProps, action: ActionProps) => {
     case CountriesActionTypes.GET_COUNTRY:
       return {
         ...state,
-        country: state.countries.filter(
+        country: initialState.countries.filter(
           (country) => country.name.common === payload.country
         )[0],
       };
     case CountriesActionTypes.GET_BORDERS_COUNTRIES:
       return {
         ...state,
-        bordersCountry: state.countries.filter(
+        bordersCountry: initialState.countries.filter(
           (c) =>
             state.country?.borders && state.country.borders.includes(c.cca3)
         ),

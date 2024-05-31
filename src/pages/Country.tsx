@@ -8,7 +8,7 @@ import { Link, useParams } from "react-router-dom";
 
 export default function Country() {
   const { name } = useParams();
-  const { country, bordersCountry, getCountry } = useCountries();
+  const { country, getCountry } = useCountries();
 
   useEffect(() => {
     if (name) {
@@ -120,7 +120,7 @@ export default function Country() {
                   </ul>
                 </div>
 
-                <BordersCountry borders={bordersCountry} />
+                <BordersCountry />
               </div>
             </div>
           </Container>
