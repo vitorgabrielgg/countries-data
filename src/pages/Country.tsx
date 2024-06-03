@@ -2,6 +2,7 @@ import BordersCountry from "@/components/BordersCountry";
 import Container from "@/components/Container";
 import { Button } from "@/components/ui/button";
 import { useCountries } from "@/hooks/useCountries";
+import { listFormatter, numberFormatter } from "@/utils";
 import { useEffect } from "react";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { Link, useParams } from "react-router-dom";
@@ -15,13 +16,6 @@ export default function Country() {
       getCountry(name);
     }
   }, [name]);
-
-  const numberFormatter = new Intl.NumberFormat("en", { notation: "standard" });
-
-  const listFormatter = new Intl.ListFormat("en", {
-    type: "conjunction",
-    style: "long",
-  });
 
   const infoCountry1 = [
     {

@@ -1,4 +1,5 @@
 import { CountryProps } from "@/types/country";
+import { listFormatter, numberFormatter } from "@/utils";
 import { Link } from "react-router-dom";
 
 export default function CountryCard({
@@ -8,15 +9,6 @@ export default function CountryCard({
   population,
   region,
 }: CountryProps) {
-  const numberFormatter = new Intl.NumberFormat("en", {
-    notation: "standard",
-  });
-
-  const listFormatter = new Intl.ListFormat("en", {
-    type: "conjunction",
-    style: "long",
-  });
-
   return (
     <Link
       to={`/country/${name.common}`}
