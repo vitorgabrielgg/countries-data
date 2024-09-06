@@ -1,5 +1,9 @@
-import { Container } from "@/components";
+import { Container, FilterSection } from "@/components";
 
 export const Home = () => {
-  return <Container className="px-5">Home</Container>;
+  return (
+    <Container className="px-5">
+      <FilterSection />
+    </Container>
+  );
 };
