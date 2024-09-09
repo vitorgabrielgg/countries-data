@@ -59,6 +59,9 @@ export default {
       boxShadow: {
         around: "0 0 8px rgba(0, 0, 0, .1)",
       },
+      gridTemplateColumns: {
+        auto_fit: "repeat(auto-fit, minmax(280px, 1fr));",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

@@ -4,6 +4,7 @@ import { getAllCountries } from "@/services";
 
 import { useEffect, useState } from "react";
 import { AiOutlineLoading } from "react-icons/ai";
+import { CountryCardItem } from "./CountryCard";
 
 export const Countries = () => {
   const [dataCountries, isLoadingCountries] = useQueryFetch(
@@ -33,5 +34,11 @@ export const Countries = () => {
     );
   }
 
-  return <section>Countries</section>;
+  return (
+    <section className="grid grid-cols-auto_fit xl:grid-cols-4 justify-items-center gap-10 pt-5 pb-20">
+      {countries.map((country, i) => (
+        <CountryCardItem key={i} {...country} />
+      ))}
+    </section>
+  );
 };
