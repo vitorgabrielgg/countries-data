@@ -15,7 +15,8 @@ export const Countries = () => {
   const [countries, setCountries] = useState<CountryCard[]>();
 
   useEffect(() => {
-    if (typeof dataCountries !== "boolean") setCountries(dataCountries);
+    if (typeof dataCountries !== "boolean" && Array.isArray(dataCountries))
+      setCountries(dataCountries);
   }, [dataCountries]);
 
   if (isLoadingCountries) {

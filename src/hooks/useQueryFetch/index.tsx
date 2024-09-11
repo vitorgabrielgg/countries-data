@@ -1,7 +1,7 @@
 import { CountryCard, CountryProps } from "@/@types";
 import { useQuery } from "@tanstack/react-query";
 
-type QueryMethod = (param?: string) => Promise<CountryCard[] | CountryProps[]>;
+type QueryMethod = (param?: string) => Promise<CountryCard[] | CountryProps>;
 
 export const useQueryFetch = (
   method: QueryMethod,

@@ -3,5 +3,5 @@ export const getCountryByName = async (name?: string) => {
     `https://restcountries.com/v3.1/name/${name}?fullText=true`
   );
   const json = await res.json();
-  return json;
+  return json[0];
 };
