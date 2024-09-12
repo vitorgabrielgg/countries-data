@@ -1,10 +1,10 @@
-import { CountryCard } from "@/@types";
 import { useQueryFetch } from "@/hooks";
 import { getAllCountries } from "@/services";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { AiOutlineLoading } from "react-icons/ai";
 import { CountryCardItem } from "./CountryCard";
+import { useCountriesStore } from "@/store";
 
 export const Countries = () => {
   const [dataCountries, isLoadingCountries] = useQueryFetch(
@@ -12,12 +12,13 @@ export const Countries = () => {
     "countries"
   );
 
-  const [countries, setCountries] = useState<CountryCard[]>();
+  const { currentCountries, setInitialCountries } = useCountriesStore();
 
   useEffect(() => {
-    if (typeof dataCountries !== "boolean" && Array.isArray(dataCountries))
-      setCountries(dataCountries);
-  }, [dataCountries]);
+    if (typeof dataCountries !== "boolean" && Array.isArray(dataCountries)) {
+      setInitialCountries(dataCountries);
+    }
+  }, [dataCountries, setInitialCountries]);
 
   if (isLoadingCountries) {
     return (
@@ -27,7 +28,7 @@ export const Countries = () => {
     );
   }
 
-  if (!countries?.length) {
+  if (!currentCountries?.length) {
     return (
       <div className="text-center mt-5 text-light_color_text">
         <p>Nenhum país encontrado, pesquise novamente.</p>
@@ -37,7 +38,7 @@ export const Countries = () => {
 
   return (
     <section className="grid grid-cols-auto_fit xl:grid-cols-4 justify-items-center gap-10 pt-5 pb-20">
-      {countries.map((country, i) => (
+      {currentCountries.map((country, i) => (
         <CountryCardItem key={i} {...country} />
       ))}
     </section>
