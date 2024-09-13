@@ -1,3 +1,4 @@
+import { useCountriesStore } from "@/store";
 import {
   Select as SelectContainer,
   SelectContent,
@@ -35,9 +36,16 @@ const arrContinent = [
 ];
 
 export const SelectFilter = () => {
+  const { continent, setContinent } = useCountriesStore();
+
   return (
     <div className="relative w-[220px] shadow-around rounded">
-      <SelectContainer>
+      <SelectContainer
+        value={continent}
+        onValueChange={(value) => {
+          setContinent(value);
+        }}
+      >
         <SelectTrigger className="w-full rounded py-7 text-left pl-6 text-light_color_text text-sm font-semibold border-none h-14 bg-white">
           <SelectValue placeholder="Filter by Region" />
         </SelectTrigger>

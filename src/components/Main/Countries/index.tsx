@@ -1,4 +1,4 @@
-import { useQueryFetch } from "@/hooks";
+import { useFilterCountries, useQueryFetch } from "@/hooks";
 import { getAllCountries } from "@/services";
 
 import { useEffect } from "react";
@@ -12,13 +12,19 @@ export const Countries = () => {
     "countries"
   );
 
-  const { currentCountries, setInitialCountries } = useCountriesStore();
+  const { continent, currentCountries, setInitialCountries } =
+    useCountriesStore();
+  const { filterByContinent } = useFilterCountries();
 
   useEffect(() => {
     if (typeof dataCountries !== "boolean" && Array.isArray(dataCountries)) {
       setInitialCountries(dataCountries);
     }
-  }, [dataCountries, setInitialCountries]);
+
+    if (continent !== "") {
+      return filterByContinent();
+    }
+  }, [continent, dataCountries, setInitialCountries, filterByContinent]);
 
   if (isLoadingCountries) {
     return (
