@@ -27,8 +27,29 @@ export const useFilterCountries = () => {
     }
   }, [countryName, initialCountries, setCurrentCountries]);
 
+  const filterByContinentAndCountryName = useCallback(() => {
+    if (continent === "All") {
+      setCurrentCountries(
+        initialCountries.filter((country) =>
+          country.name.common.toLowerCase().includes(countryName.toLowerCase())
+        )
+      );
+    } else {
+      setCurrentCountries(
+        initialCountries.filter(
+          (country) =>
+            country.name.common
+              .toLowerCase()
+              .includes(countryName.toLowerCase()) &&
+            country.region === continent
+        )
+      );
+    }
+  }, [continent, countryName, initialCountries, setCurrentCountries]);
+
   return {
     filterByContinent,
+    filterByContinentAndCountryName,
     filterByCountryName,
   };
 };

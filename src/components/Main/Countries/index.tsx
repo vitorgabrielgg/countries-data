@@ -14,11 +14,19 @@ export const Countries = () => {
 
   const { continent, countryName, currentCountries, setInitialCountries } =
     useCountriesStore();
-  const { filterByContinent, filterByCountryName } = useFilterCountries();
+  const {
+    filterByContinent,
+    filterByContinentAndCountryName,
+    filterByCountryName,
+  } = useFilterCountries();
 
   useEffect(() => {
     if (typeof dataCountries !== "boolean" && Array.isArray(dataCountries)) {
       setInitialCountries(dataCountries);
+    }
+
+    if (continent !== "" && countryName !== "") {
+      return filterByContinentAndCountryName();
     }
 
     if (continent !== "") {
@@ -34,6 +42,7 @@ export const Countries = () => {
     dataCountries,
     setInitialCountries,
     filterByContinent,
+    filterByContinentAndCountryName,
     filterByCountryName,
   ]);
 
