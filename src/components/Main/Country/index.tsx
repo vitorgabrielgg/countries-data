@@ -2,13 +2,14 @@ import { CountryProps } from "@/@types";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
-import { Button } from "@/components/ui/button";
-import { InfoCountry } from "./InfoCountry";
-import { BordersCountry } from "./BordersCountry";
 import { useCountriesStore } from "@/store";
 import { useEffect } from "react";
 import { useQueryFetch } from "@/hooks";
 import { getAllCountries } from "@/services";
+
+import { Button } from "@/components/ui/button";
+import { InfoCountry } from "./InfoCountry";
+import { CountryBorders } from "./CountryBorders";
 
 interface CountryComponentProps {
   country: CountryProps | undefined;
@@ -48,6 +49,8 @@ export const Country = ({ country }: CountryComponentProps) => {
               <h2 className="text-3xl font-extrabold">{country.name.common}</h2>
 
               <InfoCountry {...country} />
+
+              {country.borders && <CountryBorders borders={country.borders} />}
             </div>
           </div>
         </section>
