@@ -1,10 +1,10 @@
-import { CountryCard } from "@/@types";
+import { CountryProps } from "@/@types";
 import { create } from "zustand";
 
 interface CountriesState {
-  initialCountries: CountryCard[];
-  currentCountries: CountryCard[];
-  setInitialCountries: (countries: CountryCard[]) => void;
+  initialCountries: CountryProps[];
+  currentCountries: CountryProps[];
+  setInitialCountries: (countries: CountryProps[]) => void;
 }
 
 export const useCountriesStore = create<CountriesState>((set) => {
