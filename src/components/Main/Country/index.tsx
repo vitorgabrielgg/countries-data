@@ -1,14 +1,30 @@
 import { CountryProps } from "@/@types";
-import { Button } from "@/components/ui/button";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+
+import { Button } from "@/components/ui/button";
 import { InfoCountry } from "./InfoCountry";
+import { BordersCountry } from "./BordersCountry";
+import { useCountriesStore } from "@/store";
+import { useEffect } from "react";
+import { useQueryFetch } from "@/hooks";
+import { getAllCountries } from "@/services";
 
 interface CountryComponentProps {
   country: CountryProps | undefined;
 }
 
 export const Country = ({ country }: CountryComponentProps) => {
+  const [dataCountries] = useQueryFetch(getAllCountries, "countries");
+
+  const { setInitialCountries } = useCountriesStore();
+
+  useEffect(() => {
+    if (typeof dataCountries !== "boolean" && Array.isArray(dataCountries)) {
+      setInitialCountries(dataCountries);
+    }
+  }, [dataCountries, setInitialCountries]);
+
   return (
     <>
       {country && (
@@ -20,7 +36,7 @@ export const Country = ({ country }: CountryComponentProps) => {
             </Button>
           </Link>
 
-          <div className="mt-16 flex flex-col lg:flex-row lg:gap-10 lg:items-start xl:gap-20">
+          <div className="mt-16 flex flex-col lg:flex-row lg:items-center lg:gap-10 xl:gap-32">
             <div className="h-auto sm:w-3/4 lg:w-[45%] shadow">
               <img
                 src={country.flags.svg}
@@ -29,11 +45,9 @@ export const Country = ({ country }: CountryComponentProps) => {
               />
             </div>
             <div className="pt-10 lg:pt-0 space-y-6 lg:w-[55%]">
-              <h2 className="text-2xl font-extrabold">{country.name.common}</h2>
+              <h2 className="text-3xl font-extrabold">{country.name.common}</h2>
 
               <InfoCountry {...country} />
-
-              {/* <BordersCountry /> */}
             </div>
           </div>
         </section>
