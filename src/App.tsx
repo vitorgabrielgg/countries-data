@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Header } from "./components";
+import { Header, ThemeProvider } from "./components";
 import { AppRoutes } from "./routes";
 
 function App() {
@@ -7,8 +7,10 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Header />
-      <AppRoutes />
+      <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
+        <Header />
+        <AppRoutes />
+      </ThemeProvider>
     </QueryClientProvider>
   );
 }
