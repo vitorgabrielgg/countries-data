@@ -33,7 +33,7 @@ export const Country = ({ country }: CountryComponentProps) => {
       {country && (
         <section>
           <Link to="/">
-            <Button className="px-7 space-x-2 rounded mt-12 bg-white shadow-around text-light_color_text">
+            <Button className="px-7 space-x-2 rounded mt-12 bg-white shadow-around text-light_color_text dark:bg-dark_color_elements dark:text-white transition-colors">
               <FaArrowLeftLong className="font-extrabold" />
               <span className="font-semibold">Back</span>
             </Button>
@@ -48,7 +48,9 @@ export const Country = ({ country }: CountryComponentProps) => {
               />
             </div>
             <div className="pt-10 lg:pt-0 space-y-6 lg:w-[55%]">
-              <h2 className="text-3xl font-extrabold">{country.name.common}</h2>
+              <h2 className="text-3xl font-extrabold dark:text-white transition-colors">
+                {country.name.common}
+              </h2>
 
               <InfoCountry {...country} />
 

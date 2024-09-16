@@ -83,7 +83,10 @@ export const InfoCountry = ({
     <div className="flex flex-col lg:flex-row gap-10 lg:gap-20">
       <ul className="space-y-2 lg:w-2/4">
         {infoCountry1.map(({ key, value }, index) => (
-          <li key={index} className="font-light leading-relaxed">
+          <li
+            key={index}
+            className="font-light leading-relaxed dark:text-white transition-colors"
+          >
             <span className="font-bold">{key}: </span>
             {value}
           </li>
@@ -92,7 +95,10 @@ export const InfoCountry = ({
 
       <ul className="space-y-2 lg:w-2/4 pb-6">
         {infoCountry2.map(({ key, value }, index) => (
-          <li key={index} className="font-light leading-relaxed">
+          <li
+            key={index}
+            className="font-light leading-relaxed dark:text-white transition-colors"
+          >
             <span className="font-bold">{key}: </span>
             {value}
           </li>

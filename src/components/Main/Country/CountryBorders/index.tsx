@@ -15,10 +15,12 @@ export const CountryBorders = ({ borders }: CountryBordersProps) => {
   return (
     <div className="pb-10 lg:pt-10">
       <ul className="flex flex-wrap gap-4 w-full">
-        <h3 className="font-bold text-lg max-lg:w-full">Border Countries:</h3>
+        <h3 className="font-bold text-lg max-lg:w-full dark:text-white transition-colors">
+          Border Countries:
+        </h3>
         {countryBorders.map(({ name }, index) => (
           <Link to={`/country/${name.common}`} key={index}>
-            <li className="shadow-md w-full sm:max-w-32 text-center bg-white rounded py-[6px] px-4 font-medium text-sm">
+            <li className="shadow-md w-full sm:max-w-32 text-center bg-white dark:bg-dark_color_elements dark:text-white rounded py-[6px] px-4 font-medium text-sm transition-colors">
               {name.common}
             </li>
           </Link>

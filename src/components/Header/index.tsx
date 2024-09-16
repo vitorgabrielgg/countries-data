@@ -6,9 +6,9 @@ export const Header = () => {
   const { theme, setTheme } = useTheme();
 
   return (
-    <header className="shadow-md shadow-black/[.07]">
+    <header className="shadow-md shadow-black/[.07] dark:bg-dark_color_elements transition-colors">
       <Container className="flex items-center justify-between py-7 px-5 lg:py-5">
-        <span className="text-lg font-extrabold lg:text-xl">
+        <span className="text-lg font-extrabold lg:text-xl dark:text-white transition-colors">
           Countries Data
         </span>
         <button
@@ -20,7 +20,9 @@ export const Header = () => {
           ) : (
             <IoMoonSharp className="text-white" />
           )}
-          <p className="font-semibold text-sm lg:text-base">Dark Mode</p>
+          <p className="font-semibold text-sm lg:text-base dark:text-white transition-colors">
+            Dark Mode
+          </p>
         </button>
       </Container>
     </header>

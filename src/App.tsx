@@ -9,7 +9,9 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
         <Header />
-        <AppRoutes />
+        <main className="dark:bg-dark_color_background min-h-[calc(100vh-68px)] transition-colors">
+          <AppRoutes />
+        </main>
       </ThemeProvider>
     </QueryClientProvider>
   );

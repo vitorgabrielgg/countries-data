@@ -49,14 +49,14 @@ export const Countries = () => {
   if (isLoadingCountries) {
     return (
       <div className="mt-5">
-        <AiOutlineLoading className="animate-spin w-10 h-10 mx-auto" />
+        <AiOutlineLoading className="animate-spin w-10 h-10 mx-auto dark:text-white transition-colors" />
       </div>
     );
   }
 
   if (!currentCountries?.length) {
     return (
-      <div className="text-center mt-5 text-light_color_text">
+      <div className="text-center mt-5 text-light_color_text dark:text-white transition-colors">
         <p>Nenhum país encontrado, pesquise novamente.</p>
       </div>
     );
