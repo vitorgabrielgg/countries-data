@@ -1,4 +1,5 @@
 import { listFormatter, numberFormatter } from "@/utils";
+import { InfoItem } from "./InfoItem";
 
 interface InfoCountryProps {
   capital?: string;
@@ -35,42 +36,44 @@ export const InfoCountry = ({
 }: InfoCountryProps) => {
   const infoCountry1 = [
     {
-      key: "Native Name",
-      value: Object.values(name.nativeName)[
-        Object.values(name.nativeName).length - 1
-      ].common,
+      label: "Native Name",
+      value:
+        name.nativeName &&
+        Object.values(name.nativeName)[
+          Object.values(name.nativeName).length - 1
+        ].common,
     },
     {
-      key: "Population",
+      label: "Population",
       value: population && numberFormatter.format(population),
     },
     {
-      key: "Region",
+      label: "Region",
       value: region,
     },
     {
-      key: "Sub Region",
+      label: "Sub Region",
       value: subregion,
     },
     {
-      key: "Capital",
+      label: "Capital",
       value: capital && listFormatter.format(capital),
     },
   ];
 
   const infoCountry2 = [
     {
-      key: "Top Level Domain",
+      label: "Top Level Domain",
       value: tld,
     },
     {
-      key: "Currencies",
+      label: "Currencies",
       value:
         currencies &&
         Object.values(currencies).map((currency) => currency?.name),
     },
     {
-      key: "Languages",
+      label: "Languages",
       value:
         languages &&
         listFormatter.format(
@@ -82,26 +85,14 @@ export const InfoCountry = ({
   return (
     <div className="flex flex-col lg:flex-row gap-10 lg:gap-20">
       <ul className="space-y-2 lg:w-2/4">
-        {infoCountry1.map(({ key, value }, index) => (
-          <li
-            key={index}
-            className="font-light leading-relaxed dark:text-white transition-colors"
-          >
-            <span className="font-bold">{key}: </span>
-            {value}
-          </li>
+        {infoCountry1.map((info, index) => (
+          <InfoItem key={index} {...info} />
         ))}
       </ul>
 
       <ul className="space-y-2 lg:w-2/4 pb-6">
-        {infoCountry2.map(({ key, value }, index) => (
-          <li
-            key={index}
-            className="font-light leading-relaxed dark:text-white transition-colors"
-          >
-            <span className="font-bold">{key}: </span>
-            {value}
-          </li>
+        {infoCountry2.map((info, index) => (
+          <InfoItem key={index} {...info} />
         ))}
       </ul>
     </div>
