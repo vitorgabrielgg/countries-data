@@ -5,7 +5,7 @@
 [TAILWIND_CSS__BADGE]: https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white
 [SHADCN_UI__BADGE]: https://img.shields.io/badge/shadcn%2Fui-000000?style=for-the-badge&logo=shadcnui&logoColor=white
 [PROJECT__BADGE]: https://img.shields.io/badge/📱Acessar_o_projeto-000?style=for-the-badge&logo=project
-[PROJECT__URL]: https://countries-data-zeta.vercel.app/
+[PROJECT__URL]: https://countries-data-site.vercel.app/
 
 <h1 align="center" style="font-weight: bold;">Countries Data 🌎</h1>
 
@@ -19,7 +19,7 @@
 <p align="center">
     <a href="#sobre">Sobre</a> • 
     <a href="#tecnologias">Tecnologias utilizadas</a> • 
-    <a href="#rotas">Rotas do projeto</a>
+    <a href="#rotas">Rotas da aplicação</a>
 </p>
 
 <p align="center">
