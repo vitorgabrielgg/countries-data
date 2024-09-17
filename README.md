@@ -38,7 +38,7 @@ Countries Data é um projeto que consulta a API pública: [REST Countries](https
 
 A função do projeto é listar os países contidos na API, cada país possui um card na página inicial e ao clicar no card uma página dinâmica é aberta. O projeto possui duas opções de filtro para realizar uma busca mais acertiva: por nome do país e por continente, esses dois tipos de filtros ainda podem ser utilizados em conjunto.
 
-Esse projeto ainda duas opções de temas: light e dark.
+Esse projeto ainda possui duas opções de temas: light e dark.
 
 O template desse projeto pode ser encontrado em: [template-countries-data](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca)
 
