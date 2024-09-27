@@ -2,9 +2,9 @@ import { useFilterCountries, useQueryFetch } from "@/hooks";
 import { getAllCountries } from "@/services";
 
 import { useEffect } from "react";
-import { AiOutlineLoading } from "react-icons/ai";
 import { CountryCardItem } from "./CountryCard";
 import { useCountriesStore } from "@/store";
+import { Loading } from "@/components/Loading";
 
 export const Countries = () => {
   const [dataCountries, isLoadingCountries] = useQueryFetch(
@@ -47,11 +47,7 @@ export const Countries = () => {
   ]);
 
   if (isLoadingCountries) {
-    return (
-      <div className="mt-5">
-        <AiOutlineLoading className="animate-spin w-10 h-10 mx-auto dark:text-white transition-colors" />
-      </div>
-    );
+    return <Loading />;
   }
 
   if (!currentCountries?.length) {
