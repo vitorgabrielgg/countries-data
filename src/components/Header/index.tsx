@@ -3,7 +3,7 @@ import { Container } from "../Container";
 import { useTheme } from "@/hooks";
 
 export const Header = () => {
-  const { theme, setTheme } = useTheme();
+  const { handleTheme, setTheme } = useTheme();
 
   return (
     <header className="shadow-md shadow-black/[.07] dark:bg-dark_color_elements transition-colors">
@@ -13,9 +13,9 @@ export const Header = () => {
         </span>
         <button
           className="flex items-center gap-2"
-          onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+          onClick={() => setTheme(handleTheme() ? "dark" : "light")}
         >
-          {theme === "light" ? (
+          {handleTheme() ? (
             <IoMoonOutline />
           ) : (
             <IoMoonSharp className="text-white" />

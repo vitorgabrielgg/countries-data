@@ -54,7 +54,7 @@ export const SelectFilter = () => {
             {arrContinent.map((continent, index) => (
               <SelectItem
                 key={index}
-                className="cursor-pointer dark:hover:bg-dark_color_background dark:focus:bg-dark_color_background transition-colors"
+                className="cursor-pointer dark:text-white dark:hover:bg-dark_color_background dark:focus:bg-dark_color_background transition-colors"
                 value={continent.value}
               >
                 {continent.option}
