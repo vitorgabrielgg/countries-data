@@ -1,11 +1,11 @@
 import { CountryProps } from "@/@types";
 import { Container, Country } from "@/components";
 import { getCountryByName } from "@/services";
-import { AiOutlineLoading } from "react-icons/ai";
 
 import { useEffect, useState } from "react";
 import { useQueryFetch } from "@/hooks";
 import { useParams } from "react-router-dom";
+import { Loading } from "@/components/Loading";
 
 export const CountryPage = () => {
   const { name } = useParams();
@@ -27,7 +27,7 @@ export const CountryPage = () => {
   if (isLoadingCountry) {
     return (
       <div className="mt-52">
-        <AiOutlineLoading className="animate-spin w-10 h-10 mx-auto" />
+        <Loading />
       </div>
     );
   }
