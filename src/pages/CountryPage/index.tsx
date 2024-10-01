@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useQueryFetch } from "@/hooks";
 import { useParams } from "react-router-dom";
 import { Loading } from "@/components/Loading";
+import { slideScreenToTop } from "@/utils";
 
 export const CountryPage = () => {
   const { name } = useParams();
@@ -19,6 +20,7 @@ export const CountryPage = () => {
   const [country, setCountry] = useState<CountryProps>();
 
   useEffect(() => {
+    slideScreenToTop();
     if (typeof dataCountry !== "boolean" && !Array.isArray(dataCountry)) {
       setCountry(dataCountry);
     }
