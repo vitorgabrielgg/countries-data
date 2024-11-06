@@ -11,7 +11,7 @@ import { slideScreenToTop } from "@/utils";
 export const CountryPage = () => {
   const { name } = useParams();
 
-  const [dataCountry, isLoadingCountry] = useQueryFetch(
+  const [dataCountry, isLoadingCountry] = useQueryFetch<CountryProps>(
     getCountryByName,
     "country",
     name
@@ -21,7 +21,7 @@ export const CountryPage = () => {
 
   useEffect(() => {
     slideScreenToTop();
-    if (typeof dataCountry !== "boolean" && !Array.isArray(dataCountry)) {
+    if (typeof dataCountry !== "boolean" && dataCountry) {
       setCountry(dataCountry);
     }
   }, [dataCountry]);

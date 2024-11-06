@@ -16,13 +16,16 @@ interface CountryComponentProps {
 }
 
 export const Country = ({ country }: CountryComponentProps) => {
-  const [dataCountries] = useQueryFetch(getAllCountries, "countries");
+  const [dataCountries] = useQueryFetch<CountryProps[]>(
+    getAllCountries,
+    "countries"
+  );
 
   const { setInitialCountries, initialCountries } = useCountriesStore();
 
   useEffect(() => {
     if (!initialCountries.length) {
-      if (typeof dataCountries !== "boolean" && Array.isArray(dataCountries)) {
+      if (typeof dataCountries !== "boolean" && dataCountries) {
         setInitialCountries(dataCountries);
       }
     }

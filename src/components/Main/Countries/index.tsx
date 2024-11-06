@@ -5,9 +5,10 @@ import { useEffect } from "react";
 import { CountryCardItem } from "./CountryCard";
 import { useCountriesStore } from "@/store";
 import { Loading } from "@/components/Loading";
+import { CountryProps } from "@/@types";
 
 export const Countries = () => {
-  const [dataCountries, isLoadingCountries] = useQueryFetch(
+  const [dataCountries, isLoadingCountries] = useQueryFetch<CountryProps[]>(
     getAllCountries,
     "countries"
   );
@@ -21,7 +22,7 @@ export const Countries = () => {
   } = useFilterCountries();
 
   useEffect(() => {
-    if (typeof dataCountries !== "boolean" && Array.isArray(dataCountries)) {
+    if (typeof dataCountries !== "boolean" && dataCountries) {
       setInitialCountries(dataCountries);
     }
 

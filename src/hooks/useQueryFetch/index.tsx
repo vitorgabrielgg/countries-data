@@ -1,10 +1,9 @@
-import { CountryProps } from "@/@types";
 import { useQuery } from "@tanstack/react-query";
 
-type QueryMethod = (param?: string) => Promise<CountryProps[] | CountryProps>;
+type QueryMethod<T> = (param?: string) => Promise<T>;
 
-export const useQueryFetch = (
-  method: QueryMethod,
+export const useQueryFetch = <T,>(
+  method: QueryMethod<T>,
   queryKey: string,
   parameter?: string
 ) => {
