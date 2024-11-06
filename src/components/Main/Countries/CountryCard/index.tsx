@@ -1,4 +1,4 @@
-import { CountryCard } from "@/@types";
+import { CountryProps } from "@/@types";
 import { listFormatter, numberFormatter } from "@/utils";
 import { Link } from "react-router-dom";
 
@@ -8,7 +8,7 @@ export const CountryCardItem = ({
   name,
   population,
   region,
-}: CountryCard) => {
+}: CountryProps) => {
   return (
     <Link
       to={`/country/${name.common}`}
